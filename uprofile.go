@@ -50,7 +50,7 @@ func main() {
 		log.Fatal(err)
 	}
 	fmt.Println("Finished creating keyspace. Creating table...")
-	time.Sleep(8 * time.Second)
+	time.Sleep(5 * time.Second)
 
 	if err := session.Query(`CREATE TABLE uprofile.user (user_id int PRIMARY KEY, user_name text, user_bcity text)`).Exec(); err != nil {
 		log.Fatal(err)
