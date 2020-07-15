@@ -21,7 +21,7 @@ git clone https://github.com/Azure-Samples/azure-cosmos-db-cassandra-golang-gett
 
 ### Configuration
 
-To configure the application, open `cassandra.go` and fill in `ACCOUNTNAME`, `PASSWORD` and `CONTACTPOINT` with corresponding values from Azure portal, within your Azure Cosmos DB Cassandra API account.  
+To configure the application, open `uprofile.go` and fill in `ACCOUNTNAME`, `PASSWORD` and `CONTACTPOINT` with corresponding values from Azure portal, within your Azure Cosmos DB Cassandra API account.  
 
 ```go
 func main() {
@@ -52,9 +52,9 @@ func main() {
 >
 > You should now have a properly formatted .cer file. 
 
-2. Change the `<path/to/cert.cer>` in `cassandra.go` to point to your new certificate.
+2. Change the `<path/to/cert.cer>` in `uprofile.go` to point to your new certificate.
 
-3. Save `cassandra.go`.
+3. Save `uprofile.go`.
 
 ### Build the application
 
@@ -64,7 +64,7 @@ Open up a command window, navigate to where you cloned the application and build
 
 ### Run the application
 
-Run the sample from the same directory by typing `cassandra` and hitting return. You should see the following output:
+Run the sample from the same directory by typing `uprofile` and hitting return. You should see the following output:
 
 ![image4](media/run.png)
 
