@@ -39,11 +39,11 @@ To configure the application, open `cassandra.go` and replace `ACCOUNTNAME` and 
 >
 > Click `Copy to File`.
 >
-> :::image type="content" source="./media/crtcer1.gif" alt-text="View and verify the output":::
+> ![image1](media/crtcer1.gif)
 >
 > Press Next on the Certificate Wizard. Select Base-64 encoded X.509 (.CER), then Next.
 >
-> :::image type="content" source="./media/crtcer2.gif" alt-text="View and verify the output":::
+> ![image2](media/crtcer2.gif)
 >
 > Select Browse (to locate a destination) and type in a filename.
 > Select Next then Finished.
@@ -61,6 +61,6 @@ go build cassandra.go
 
 Run the sample from the same directory by typing `cassandra` and hitting return. You should see the following output:
 
-:::image type="content" source="./media/run.png" alt-text="View and verify the output":::
+![image3](media/run.png)
 
 
