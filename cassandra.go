@@ -1,6 +1,7 @@
 package main
 
 import (
+	"crypto/tls"
 	"fmt"
 	"log"
 	"time"
@@ -20,15 +21,15 @@ func main() {
 	cluster.DisableInitialHostLookup = true
 
 	// If you want to enable client-side SSL server cert verification do this:
-	// sslOptions.EnableHostVerification = true
-	// sslOptions.CaPath = "<path/to/cert.pem>"
-	// sslOptions.Config = &tls.Config{}
-	// sslOptions.ServerName = `ACCOUNTNAME.cassandra.cosmos.azure.com`
-	// cluster.SslOpts = sslOptions
+	sslOptions.EnableHostVerification = true
+	sslOptions.CaPath = "<path/to/cert.pem>"
+	sslOptions.Config = &tls.Config{}
+	sslOptions.ServerName = `ACCOUNTNAME.cassandra.cosmos.azure.com`
+	cluster.SslOpts = sslOptions
 
 	// If you do NOT want to enable client-side SSL, set sslOptions.EnableHostVerification to false and ignore the other options.
-	sslOptions.EnableHostVerification = false
-	cluster.SslOpts = sslOptions
+	// sslOptions.EnableHostVerification = false
+	// cluster.SslOpts = sslOptions
 
 	cluster.ProtoVersion = 4
 	cluster.Authenticator = gocql.PasswordAuthenticator{Username: "ACCOUNTNAME", Password: "PASSWORD"}

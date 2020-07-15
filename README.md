@@ -1,57 +1,66 @@
-# Project Name
+# Quickstart: Connect a Go application to Azure Cosmos DB Cassandra API
 
-(short, 1-3 sentenced, description of the project)
-
-## Features
-
-This project framework provides the following features:
-
-* Feature 1
-* Feature 2
-* ...
+Azure Cosmos DB is a globally distributed multi-model database. One of the supported APIs is the Cassandra API. This sample walks you through creation of keyspace, table, inserting and querying the data using the gocql driver. 
 
 ## Getting Started
 
 ### Prerequisites
 
-(ideally very short, if any)
+- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free). Or [try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/) without an Azure subscription. 
+- [Go](https://golang.org/) installed on your computer, and a working knowledge of Go.
+- [Git](https://git-scm.com/downloads).
 
-- OS
-- Library version
-- ...
+### Setup
+
+Clone the application
+
+```bash
+git clone https://github.com/Azure-Samples/azure-cosmos-db-cassandra-golang-getting-started
+```
 
 ### Installation
 
-(ideally very short)
+To configure the application, open `cassandra.go` and replace `ACCOUNTNAME` and `PASSWORD` with values from the portal.  
 
-- npm install [package name]
-- mvn install
-- ...
+### Use the X509 certificate
 
-### Quickstart
-(Add steps to get up and running quickly)
+1. Download the Baltimore CyberTrust Root certificate locally from [https://cacert.omniroot.com/bc2025.crt](https://cacert.omniroot.com/bc2025.crt). Rename the file using the file extension `.cer`.
 
-1. git clone [repository clone url]
-2. cd [respository name]
-3. ...
+   The certificate has serial number `02:00:00:b9` and SHA1 fingerprint `d4🇩🇪20:d0:5e:66:fc:53:fe:1a:50:88:2c:78:db:28:52:ca:e4:74`.
+
+2. Change the `<path/to/cert.pem>` in `cassandra.go` to point to your new certificate.
+
+3. Save `cassandra.go`.
+
+> [!NOTE]
+> If you experience a certificate related error in the later steps and are running on a Windows machine, ensure that you have followed the process for properly converting a .crt file into the Microsoft .cer format below.
+> 
+> Double-click on the .crt file to open it into the certificate display. 
+>
+> Click `Copy to File`.
+>
+> :::image type="content" source="./media/crtcer1.gif" alt-text="View and verify the output":::
+>
+> Press Next on the Certificate Wizard. Select Base-64 encoded X.509 (.CER), then Next.
+>
+> :::image type="content" source="./media/crtcer2.gif" alt-text="View and verify the output":::
+>
+> Select Browse (to locate a destination) and type in a filename.
+> Select Next then Finished.
+>
+> You should now have a properly formatted .cer file. Ensure that the path in `uprofile.js` points to this file.
+
+Change into the directory where you cloned the application and build it (using `go build`).
+
+```bash
+cd azure-cosmos-db-cassandra-golang-getting-started
+go build cassandra.go
+```
+
+### Running this sample
+
+Run the sample from the same directory by typing `cassandra` and hitting return. You should see the following output:
+
+:::image type="content" source="./media/run.png" alt-text="View and verify the output":::
 
 
-## Demo
-
-A demo app is included to show how to use the project.
-
-To run the demo, follow these steps:
-
-(Add steps to start up the demo)
-
-1.
-2.
-3.
-
-## Resources
-
-(Any additional resources or related projects)
-
-- Link to supporting information
-- Link to similar sample
-- ...
