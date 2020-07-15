@@ -26,8 +26,7 @@ func main() {
 
 	// If you want to enable client-side SSL server cert verification do this:
 	sslOptions.EnableHostVerification = true
-	//sslOptions.CaPath = "<path/to/cert.cer>"
-	sslOptions.CaPath = "C:/cert/cassandra.cer"
+	sslOptions.CaPath = "<path/to/cert.cer>"
 	sslOptions.Config = &tls.Config{}
 	sslOptions.ServerName = CONTACTPOINT
 	cluster.SslOpts = sslOptions
