@@ -32,7 +32,6 @@ To configure the application, open `cassandra.go` and replace `ACCOUNTNAME` and 
 
 3. Save `cassandra.go`.
 
-> [!NOTE]
 > If you experience a certificate related error in the later steps and are running on a Windows machine, ensure that you have followed the process for properly converting a .crt file into the Microsoft .cer format below.
 > 
 > Double-click on the .crt file to open it into the certificate display. 
@@ -50,17 +49,14 @@ To configure the application, open `cassandra.go` and replace `ACCOUNTNAME` and 
 >
 > You should now have a properly formatted .cer file. Ensure that the path in `uprofile.js` points to this file.
 
-Change into the directory where you cloned the application and build it (using `go build`).
+Open up a command window, navigate to where you cloned the application and build it (using `go build`).
 
-```bash
-cd azure-cosmos-db-cassandra-golang-getting-started
-go build cassandra.go
-```
+![image3](media/build.png)
 
 ### Running this sample
 
 Run the sample from the same directory by typing `cassandra` and hitting return. You should see the following output:
 
-![image3](media/run.png)
+![image4](media/run.png)
 
 
