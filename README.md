@@ -1,6 +1,6 @@
 # Quickstart: Connect a Go application to Azure Cosmos DB Cassandra API
 
-Azure Cosmos DB is a globally distributed multi-model database. One of the supported APIs is the Cassandra API. This sample walks you through creation of keyspace, table, inserting and querying the data using the gocql driver. 
+Azure Cosmos DB is a globally distributed multi-model database. One of the supported APIs is the Cassandra API. This is a quick start sample for creation of keyspace, table, insert and querying data in Cassandra API using the gocql driver. 
 
 ## Getting Started
 
