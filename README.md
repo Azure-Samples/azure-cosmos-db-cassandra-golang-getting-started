@@ -21,7 +21,9 @@ git clone https://github.com/Azure-Samples/azure-cosmos-db-cassandra-golang-gett
 
 ### Installation
 
-To configure the application, open `cassandra.go` and replace `ACCOUNTNAME` and `PASSWORD` with values from the portal.  
+To configure the application, open `cassandra.go` and replace all instances of `ACCOUNTNAME` and `PASSWORD` with corresponding values retrieved from the Connection String section in the Azure portal, within your Azure Cosmos DB Cassandra API account.  
+
+![image1](media/connections.png)
 
 ### Use the X509 certificate
 
