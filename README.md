@@ -1,57 +1,71 @@
-# Project Name
+# Quickstart: Connect a Go application to Azure Cosmos DB Cassandra API
 
-(short, 1-3 sentenced, description of the project)
-
-## Features
-
-This project framework provides the following features:
-
-* Feature 1
-* Feature 2
-* ...
+Azure Cosmos DB is a globally distributed multi-model database. One of the supported APIs is the Cassandra API. This is a quick start sample for creation of keyspace, table, insert and querying data in Cassandra API using the gocql driver. 
 
 ## Getting Started
 
 ### Prerequisites
 
-(ideally very short, if any)
+- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free). 
+- An active Azure Cassandra API account - If you don't have an account, refer to the [Create a Cassandra API account](https://docs.microsoft.com/en-us/azure/cosmos-db/create-cassandra-nodejs) article.
+- [Go](https://golang.org/) installed on your computer, and a working knowledge of Go.
+- [Git](https://git-scm.com/downloads).
 
-- OS
-- Library version
-- ...
+### Setup
 
-### Installation
+Clone the application
 
-(ideally very short)
+```bash
+git clone https://github.com/Azure-Samples/azure-cosmos-db-cassandra-golang-getting-started
+```
 
-- npm install [package name]
-- mvn install
-- ...
+### Configuration
 
-### Quickstart
-(Add steps to get up and running quickly)
+To configure the application, open `cassandra.go` and fill in `ACCOUNTNAME`, `PASSWORD` and `CONTACTPOINT` with corresponding values from Azure portal, within your Azure Cosmos DB Cassandra API account.  
 
-1. git clone [repository clone url]
-2. cd [respository name]
-3. ...
+```go
+func main() {
+
+	var ACCOUNTNAME = ""
+	var PASSWORD = ""
+	var CONTACTPOINT = ""
+```
+
+![image1](media/connections.png)
+
+### Using the X509 certificate
+
+1. Download the Baltimore CyberTrust Root certificate locally from [https://cacert.omniroot.com/bc2025.crt](https://cacert.omniroot.com/bc2025.crt). 
+
+> If you are using a Windows machine, ensure that you have followed the process for properly converting a .crt file into the Microsoft .cer format below. Double-click on the .crt file to open it into the certificate display. 
+>
+> Click `Copy to File`.
+>
+> ![image1](media/crtcer1.gif)
+>
+> Press Next on the Certificate Wizard. Select Base-64 encoded X.509 (.CER), then Next.
+>
+> ![image2](media/crtcer2.gif)
+>
+> Select Browse (to locate a destination) and type in a filename.
+> Select Next then Finished.
+>
+> You should now have a properly formatted .cer file. 
+
+2. Change the `<path/to/cert.cer>` in `cassandra.go` to point to your new certificate.
+
+3. Save `cassandra.go`.
+
+### Build the application
+
+Open up a command window, navigate to where you cloned the application and build it (using `go build`). This should create a cassandra.exe file in the same directory. 
+
+![image3](media/build.png)
+
+### Run the application
+
+Run the sample from the same directory by typing `cassandra` and hitting return. You should see the following output:
+
+![image4](media/run.png)
 
 
-## Demo
-
-A demo app is included to show how to use the project.
-
-To run the demo, follow these steps:
-
-(Add steps to start up the demo)
-
-1.
-2.
-3.
-
-## Resources
-
-(Any additional resources or related projects)
-
-- Link to supporting information
-- Link to similar sample
-- ...
