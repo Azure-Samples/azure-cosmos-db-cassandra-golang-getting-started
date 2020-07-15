@@ -6,7 +6,8 @@ Azure Cosmos DB is a globally distributed multi-model database. One of the suppo
 
 ### Prerequisites
 
-- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free). Or [try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/) without an Azure subscription. 
+- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free). 
+- An active Azure Cassandra API account - If you don't have an account, refer to the [Create a Cassandra API account](https://docs.microsoft.com/en-us/azure/cosmos-db/create-cassandra-nodejs) article.
 - [Go](https://golang.org/) installed on your computer, and a working knowledge of Go.
 - [Git](https://git-scm.com/downloads).
 
@@ -24,17 +25,9 @@ To configure the application, open `cassandra.go` and replace `ACCOUNTNAME` and 
 
 ### Use the X509 certificate
 
-1. Download the Baltimore CyberTrust Root certificate locally from [https://cacert.omniroot.com/bc2025.crt](https://cacert.omniroot.com/bc2025.crt). Rename the file using the file extension `.cer`.
+1. Download the Baltimore CyberTrust Root certificate locally from [https://cacert.omniroot.com/bc2025.crt](https://cacert.omniroot.com/bc2025.crt). 
 
-   The certificate has serial number `02:00:00:b9` and SHA1 fingerprint `d4🇩🇪20:d0:5e:66:fc:53:fe:1a:50:88:2c:78:db:28:52:ca:e4:74`.
-
-2. Change the `<path/to/cert.pem>` in `cassandra.go` to point to your new certificate.
-
-3. Save `cassandra.go`.
-
-> If you experience a certificate related error in the later steps and are running on a Windows machine, ensure that you have followed the process for properly converting a .crt file into the Microsoft .cer format below.
-> 
-> Double-click on the .crt file to open it into the certificate display. 
+> If you are using a Windows machine, ensure that you have followed the process for properly converting a .crt file into the Microsoft .cer format below. Double-click on the .crt file to open it into the certificate display. 
 >
 > Click `Copy to File`.
 >
@@ -47,13 +40,17 @@ To configure the application, open `cassandra.go` and replace `ACCOUNTNAME` and 
 > Select Browse (to locate a destination) and type in a filename.
 > Select Next then Finished.
 >
-> You should now have a properly formatted .cer file. Ensure that the path in `uprofile.js` points to this file.
+> You should now have a properly formatted .cer file. 
 
-Open up a command window, navigate to where you cloned the application and build it (using `go build`).
+2. Change the `<path/to/cert.cer>` in `cassandra.go` to point to your new certificate.
+
+3. Save `cassandra.go`.
+
+Open up a command window, navigate to where you cloned the application and build it (using `go build`). This should create a cassandra.exe file in the same directory. 
 
 ![image3](media/build.png)
 
-### Running this sample
+### Running the sample
 
 Run the sample from the same directory by typing `cassandra` and hitting return. You should see the following output:
 
