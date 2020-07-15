@@ -11,9 +11,13 @@ import (
 
 func main() {
 
+	var ACCOUNTNAME = ""
+	var PASSWORD = ""
+	var CONTACTPOINT = ""
+
 	// connect to the cluster
 	fmt.Println("Creating Azure Cosmos DB Cassandra API Connection...")
-	cluster := gocql.NewCluster("ACCOUNTNAME.cassandra.cosmos.azure.com")
+	cluster := gocql.NewCluster(CONTACTPOINT)
 	cluster.Port = 10350
 	var sslOptions = new(gocql.SslOptions)
 	cluster.Timeout = 30 * time.Second
@@ -22,9 +26,10 @@ func main() {
 
 	// If you want to enable client-side SSL server cert verification do this:
 	sslOptions.EnableHostVerification = true
-	sslOptions.CaPath = "<path/to/cert.cer>"
+	//sslOptions.CaPath = "<path/to/cert.cer>"
+	sslOptions.CaPath = "C:/cert/cassandra.cer"
 	sslOptions.Config = &tls.Config{}
-	sslOptions.ServerName = `ACCOUNTNAME.cassandra.cosmos.azure.com`
+	sslOptions.ServerName = CONTACTPOINT
 	cluster.SslOpts = sslOptions
 
 	// If you do NOT want to enable client-side SSL, set sslOptions.EnableHostVerification to false and ignore the other options.
@@ -32,7 +37,7 @@ func main() {
 	// cluster.SslOpts = sslOptions
 
 	cluster.ProtoVersion = 4
-	cluster.Authenticator = gocql.PasswordAuthenticator{Username: "ACCOUNTNAME", Password: "PASSWORD"}
+	cluster.Authenticator = gocql.PasswordAuthenticator{Username: ACCOUNTNAME, Password: PASSWORD}
 	session, _ := cluster.CreateSession()
 	defer session.Close()
 
@@ -46,7 +51,7 @@ func main() {
 		log.Fatal(err)
 	}
 	fmt.Println("Finished creating keyspace. Creating table...")
-	time.Sleep(5 * time.Second)
+	time.Sleep(8 * time.Second)
 
 	if err := session.Query(`CREATE TABLE uprofile.user (user_id int PRIMARY KEY, user_name text, user_bcity text)`).Exec(); err != nil {
 		log.Fatal(err)

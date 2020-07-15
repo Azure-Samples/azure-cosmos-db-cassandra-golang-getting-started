@@ -19,13 +19,21 @@ Clone the application
 git clone https://github.com/Azure-Samples/azure-cosmos-db-cassandra-golang-getting-started
 ```
 
-### Installation
+### Configuration
 
-To configure the application, open `cassandra.go` and replace all instances of `ACCOUNTNAME` and `PASSWORD` with corresponding values retrieved from the Connection String section in the Azure portal, within your Azure Cosmos DB Cassandra API account.  
+To configure the application, open `cassandra.go` and fill in `ACCOUNTNAME`, `PASSWORD` and `CONTACTPOINT` with corresponding values from Azure portal, within your Azure Cosmos DB Cassandra API account.  
+
+```go
+func main() {
+
+	var ACCOUNTNAME = ""
+	var PASSWORD = ""
+	var CONTACTPOINT = ""
+```
 
 ![image1](media/connections.png)
 
-### Use the X509 certificate
+### Using the X509 certificate
 
 1. Download the Baltimore CyberTrust Root certificate locally from [https://cacert.omniroot.com/bc2025.crt](https://cacert.omniroot.com/bc2025.crt). 
 
@@ -48,11 +56,13 @@ To configure the application, open `cassandra.go` and replace all instances of `
 
 3. Save `cassandra.go`.
 
+### Build the application
+
 Open up a command window, navigate to where you cloned the application and build it (using `go build`). This should create a cassandra.exe file in the same directory. 
 
 ![image3](media/build.png)
 
-### Running the sample
+### Run the application
 
 Run the sample from the same directory by typing `cassandra` and hitting return. You should see the following output:
 
